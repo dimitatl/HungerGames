@@ -1,7 +1,7 @@
 /*
- * PAPAFOTIOU THEODOROS - AEM: 9708 - PHONE: 6977021300 - EMAIL: papafotit@ece.auth.gr
+ * PAPAFOTIOU THEODOROS
  * 
- * TATLI DIMITRA - AEM: 9802 - PHONE: 6971881071 - EMAIL: dimitatl@ece.auth.gr
+ * TATLI DIMITRA
  * 
  */
 
