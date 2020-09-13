@@ -1,11 +1,4 @@
-/*
- * PAPAFOTIOU THEODOROS - AEM: 9708 - PHONE: 6977021300 - EMAIL: papafotit@ece.auth.gr
- * 
- * TATLI DIMITRA - AEM: 9802 - PHONE: 6971881071 - EMAIL: dimitatl@ece.auth.gr
- * 
- */
-
-package hungerGames2020;
+package application;
 
 public class Trap {
 	int id;	// for the identity of the trap
@@ -21,16 +14,7 @@ public class Trap {
 		points = 0;
 		type = null;
 	}
-	/*
-	public Trap(Trap c) {		// 2nd constructor with an object of class Trap as an argument
-		c.id = id;
-		c.x = x;
-		c.y = y;
-		c.points = points;
-		c.type = type;
-	}
-	*/
-	public Trap(Trap t) {
+	public Trap(Trap t) {	// 2nd constructor with an object of class Trap as an argument
 		this.id = t.id;
 		this.x = t.x;
 		this.y = t.y;

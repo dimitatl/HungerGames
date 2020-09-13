@@ -1,14 +1,14 @@
-package hungerGames2020;
+package application;
 
 import java.util.ArrayList;
 
 public class Node {
-	Node parent;
-	ArrayList<Node> children = new ArrayList<>();;
-	int nodeDepth;
-	int [] nodeMove;
-	Board nodeBoard;
-	double nodeEvaluation;
+	Node parent;	//the parent of each node
+	ArrayList<Node> children = new ArrayList<>();	//a list of all the children of each node
+	int nodeDepth;			//the depth of the node in the MinMaxTree
+	int [] nodeMove;		//the x.position, y.position and dice of each node
+	Board nodeBoard;		
+	double nodeEvaluation;	//for the evaluation of the node
 	
 	public Node() {
 		parent = null;

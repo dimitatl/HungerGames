@@ -1,11 +1,4 @@
-/*
- * PAPAFOTIOU THEODOROS 
- * 
- * TATLI DIMITRA 
- * 
- */
-
-package hungerGames2020;
+package application;
 
 public class Player {
 	int id;			// identity of the player (1,2)
@@ -17,6 +10,7 @@ public class Player {
 	Weapon bow;
 	Weapon pistol;
 	Weapon sword;
+	String type;
 	
 	public Player() {		// 1st constructor with no arguments
 		id = 0;
@@ -27,6 +21,7 @@ public class Player {
 		bow = null;
 		pistol = null;
 		sword = null;
+		type = "Random";
 	}
 	
 	public Player (int id, String name, int x, int y, Board board) {
@@ -35,6 +30,7 @@ public class Player {
 		this.y = y;
 		this.name = name;
 		this.board = board;
+		this.type = "Random";
 	}
 	
 	public Player (Player p) {		// 3rd constructor with an object of class Player as an argument
@@ -47,6 +43,7 @@ public class Player {
 		bow = p.bow;
 		pistol = p.pistol;
 		sword = p.sword;
+		type = p.type;
 	}
 	
 	public void setId(int id) {		//setters getters
@@ -76,6 +73,9 @@ public class Player {
 	public void setSword(Weapon sword) {
 		this.sword = sword;
 	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 	public int getId() {
 		return id;
@@ -103,6 +103,9 @@ public class Player {
 	}
 	public Weapon getSword() {
 		return sword;
+	}
+	public String getType() {
+		return type;
 	}
 	
 	/*
@@ -164,7 +167,7 @@ public class Player {
 	/*
 	 * This function, depending on the k (the return value of the function above)
 	 * sets virtually the new coordinates of the player (moves the player) and returns the virtual new position
-	 * through a int[] √Å board
+	 * through a int[] ¡ board
 	 */
 	public int[] positions(int k) {
 		
@@ -230,7 +233,7 @@ public class Player {
 				--a;
 			}
 		}
-		else{				///k = 8
+		else if(k == 8){				///k = 8
 			--b;
 			--a;
 			if(b == 0) {
@@ -240,6 +243,9 @@ public class Player {
 			if(a == 0) {
 				--a;
 			}
+		}
+		else {
+			System.out.println("SOMETHING IS VERY WRONG HERE! Wrong dice given as an input.");
 		}
 		
 		Position[0] = b;
@@ -267,7 +273,7 @@ public class Player {
 	}
 	
 	/*
-	 * √îhis function counts how many Weapons, Traps, Food a player has taken (or fallen into), 
+	 * ‘his function counts how many Weapons, Traps, Food a player has taken (or fallen into), 
 	 * it makes the score of a player, it prints messages on the console, when the player
 	 * takes Weapon, Trap, Food (also prints the points it takes form them).
 	 * Finally, it returns an array with the new position of the player (X, Y)

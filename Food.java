@@ -1,11 +1,4 @@
-/*
- * PAPAFOTIOU THEODOROS 
- * 
- * TATLI DIMITRA
- * 
- */
-
-package hungerGames2020;
+package application;
 
 public class Food {
 	int id;	// for the identity of the food
@@ -19,15 +12,7 @@ public class Food {
 		y = 0;
 		points = 0;
 	}
-	/*
-	public Food(Food b) {		// 2nd constructor with an object of class Food as an argument
-		b.id = id;
-		b.x = x;
-		b.y = y;
-		b.points = points;
-	}
-	*/
-	public Food(Food f) {
+	public Food(Food f) {	// 2nd constructor with an object of class Food as an argument
 		id = f.id;
 		x = f.x;
 		y = f.y;

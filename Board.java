@@ -1,15 +1,8 @@
-/*
- * PAPAFOTIOU THEODOROS 
- * 
- * TATLI DIMITRA 
- * 
- */
-
-package hungerGames2020;
+package application;
 
 public class Board {
-	
 	int M, N;	//size of GameBoard
+	int initM;
 	int W, F, T; // number of items of Weapons, Food, Traps
 	int A, B, C; // half size of Weapon-, Food-, TrapAreaLimits 
 	int [][] weaponAreaLimits = new int[4][2];
@@ -22,9 +15,13 @@ public class Board {
 	public Board() {	//the first constructor with no arguments
 		M = 0;
 		N = 0;
+		initM = 0;
 		W = 0;
 		F = 0;
 		T = 0;
+		A = 0;
+		B = 0;
+		C = 0;
 		weapons = null;
 		food = null;
 		traps = null;
@@ -34,13 +31,14 @@ public class Board {
 	}
 	public Board(int M, int N, int W, int F, int T, int A, int B, int C) {	//the second constructor with specific arguments
 		this.M = M;
-		this.N = N;	 
+		this.N = N;
 		this.W = W;
 		this.F = F;
 		this.T = T;
 		this.A = A;
 		this.B = B;
 		this.C = C;
+		this.initM = M;
 		
 		weaponAreaLimits[0][0] = A;		// here we initialize the weapon-, food-, trap-, AreaLimits boards
 		weaponAreaLimits[0][1] = A;
@@ -83,65 +81,7 @@ public class Board {
 			traps[i] = new Trap();
 		}
 	}
-	/*
-	public Board (Board d) {		//the third constructor with argument an object of the class Board
-		d.M = M;
-		d.N = N;
-		d.W = W;
-		d.F = F;
-		d.T = T;
-		d.A = A;
-		d.B = B;
-		d.C = C;
-		d.weaponAreaLimits = weaponAreaLimits;
-		d.foodAreaLimits = foodAreaLimits;
-		d.trapAreaLimits = trapAreaLimits;
-		d.weapons = weapons;
-		d.food = food;
-		d.traps = traps;
-		
-		weaponAreaLimits[0][0] = A;		// here we initialize the weapon-, food-, trap-, AreaLimits boards
-		weaponAreaLimits[0][1] = A;
-		weaponAreaLimits[1][0] = A;
-		weaponAreaLimits[1][1] = -A;
-		weaponAreaLimits[2][0] = -A;
-		weaponAreaLimits[2][1] = -A;
-		weaponAreaLimits[3][0] = -A;
-		weaponAreaLimits[3][1] = A;
-		
-		foodAreaLimits[0][0] = B;
-		foodAreaLimits[0][1] = B;
-		foodAreaLimits[1][0] = B;
-		foodAreaLimits[1][1] = -B;
-		foodAreaLimits[2][0] = -B;
-		foodAreaLimits[2][1] = -B;
-		foodAreaLimits[3][0] = -B;
-		foodAreaLimits[3][1] = B;
-		
-		trapAreaLimits[0][0] = C;
-		trapAreaLimits[0][1] = C;
-		trapAreaLimits[1][0] = C;
-		trapAreaLimits[1][1] = -C;
-		trapAreaLimits[2][0] = -C;
-		trapAreaLimits[2][1] = -C;
-		trapAreaLimits[3][0] = -C;
-		trapAreaLimits[3][1] = C;
-		
-		weapons = new Weapon[W];
-		food = new Food[F];
-		traps = new Trap[T];
-		
-		for (int i = 0; i < W; i++) {	// here we initialize the weapons-, food-, traps- boards
-			weapons[i] = new Weapon();
-		}
-		for (int i = 0; i < F; i++) {
-			food[i] = new Food();
-		}
-		for (int i = 0; i < T; i++) {
-			traps[i] = new Trap();
-		}
-	}
-	*/
+	
 	public Board(Board b) {
 		// Sizes
 		N = b.N;
@@ -152,14 +92,15 @@ public class Board {
 	    A = b.A;
 		B = b.B;
 		C = b.C;
-		// Arrays
+		initM = b.initM;
+
 		weaponAreaLimits = new int[4][2];
 		foodAreaLimits = new int[4][2];
 		trapAreaLimits = new int[4][2];
 		weapons = new Weapon[W];
 		food = new Food[F];
 		traps = new Trap[T];
-		// Deep copy
+
 		weaponAreaLimits[0][0] = A;		// here we initialize the weapon-, food-, trap-, AreaLimits boards
 		weaponAreaLimits[0][1] = A;
 		weaponAreaLimits[1][0] = A;
@@ -203,6 +144,9 @@ public class Board {
 	public void setN (int N) {
 		this.N = N;
 	}
+	public void setInitM (int initM) {
+		this.initM = initM;
+	}
 	public void setW (int W) {
 		this.W = W;
 	}
@@ -226,6 +170,9 @@ public class Board {
 	}
 	public int getN () {
 		return N;
+	}
+	public int getInitM() {
+		return initM;
 	}
 	public int getW () {
 		return W;
@@ -300,10 +247,10 @@ public class Board {
 				else 
 					j++;
 			}
-			//System.out.println("Weapon created at position " + weapons[i].getX() 
-			//					+ "\t" + weapons[i].getY());
+			System.out.println("Weapon created at position " + weapons[i].getX() 
+								+ "\t" + weapons[i].getY());
 		}
-		//System.out.println("\n");
+		System.out.println("\n");
 	}
 
 	
@@ -366,10 +313,10 @@ public class Board {
 					break;
 				
 			}
-			//System.out.println("Trap created at position: " + traps[i].getX() +
-			//					"\t" + traps[i].getY());
+			System.out.println("Trap created at position: " + traps[i].getX() +
+								"\t" + traps[i].getY());
 		}
-		//System.out.println("\n");
+		System.out.println("\n");
 	}
 	
 	/*
@@ -418,10 +365,10 @@ public class Board {
 					break;
 
 			}
-			//System.out.println("Food created at position: " + food[i].getX() +
-			//					"\t" + food[i].getY());
+			System.out.println("Food created at position: " + food[i].getX() +
+								"\t" + food[i].getY());
 		}	
-		//System.out.println("\n");
+		System.out.println("\n");
 	}
 	
 	public void createBoard() {		// it creates in a random way the Board (calling the 3 methods from above)
@@ -429,6 +376,7 @@ public class Board {
 		createRandomWeapon();
 		createRandomFood();
 		createRandomTrap();
+		System.out.println("I CREATED THE BOARD");
 
 	}
 	
@@ -439,6 +387,20 @@ public class Board {
 		else {
 			setM(M - 2);	// practically -1 each side
 			setN(N - 2);
+			if (getM()/2 < getC() && getM()/2 > getB()) {
+				setC(getC() - 1);
+			}
+			if (getM()/2 < getB() && getM()/2 > getA()) {
+				setB(getB() - 1);
+				
+			}
+			if (getM()/2 == getB()) {
+				setC(getB());
+			}
+			if (getM()/2 == getA()) {
+				setB(getA());
+				setC(getA());
+			}
 		}
 	}
 	
@@ -450,8 +412,10 @@ public class Board {
 	 */
 	
 	public String[][] getStringRepresentation(int X1, int Y1, int X2, int Y2){
-		String[][] Beautiful = new String[N][M];
+		String[][] Beautiful = new String[getN()][getM()];
 
+		int M = getM();
+		int N = getN();
 		int x, y;
 		for (int i = 0; i < M/2; i++) {						// 2nd quadrant
 			for (int j = 0; j < N/2; j++) {
@@ -585,5 +549,5 @@ public class Board {
 			System.out.println("\n\n");
 		}
 		return Beautiful;
-	}	
+	}
 }
