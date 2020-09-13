@@ -1,3 +1,3 @@
 # HungerGames
 
-the latest version thodoris sent today(18.12.2019)
+the latest version of our project, including the images for the graphics!
